@@ -93,7 +93,7 @@ class _RandomWordsState extends State<RandomWords> {
         // NEW lines from here...
         builder: (BuildContext context) {
           final tiles = _saved.map(
-                (WordPair pair) {
+            (WordPair pair) {
               return ListTile(
                 title: Text(
                   pair.asPascalCase,
