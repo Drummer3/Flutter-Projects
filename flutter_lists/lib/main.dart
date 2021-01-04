@@ -3,8 +3,8 @@ import 'quote.dart';
 import 'quote_card.dart';
 
 void main() => runApp(MaterialApp(
-  home: QuoteList(),
-));
+      home: QuoteList(),
+    ));
 
 class QuoteList extends StatefulWidget {
   @override
@@ -12,11 +12,16 @@ class QuoteList extends StatefulWidget {
 }
 
 class _QuoteListState extends State<QuoteList> {
-
   List<Quote> quotes = [
-    Quote(author: 'შოთა რუსთაველი', text: 'ასი ათასსა აჯობებს, თუ გამორჩევით მქმნელია.'),
-    Quote(author: 'შოთა რუსთაველი', text: 'ბოროტსა სძლია კეთილმან, — არსება მისი გრძელია!'),
-    Quote(author: 'შოთა რუსთაველი', text: 'გველსა ხვრელით ამოიყვანს ენა ტკბილად მოუბარი.'),
+    Quote(
+        author: 'შოთა რუსთაველი',
+        text: 'ასი ათასსა აჯობებს, თუ გამორჩევით მქმნელია.'),
+    Quote(
+        author: 'შოთა რუსთაველი',
+        text: 'ბოროტსა სძლია კეთილმან, — არსება მისი გრძელია!'),
+    Quote(
+        author: 'შოთა რუსთაველი',
+        text: 'გველსა ხვრელით ამოიყვანს ენა ტკბილად მოუბარი.'),
     Quote(author: 'შოთა რუსთაველი', text: 'გრძელი სიტყვა მოკლედ ითქმის.'),
   ];
 
@@ -29,17 +34,20 @@ class _QuoteListState extends State<QuoteList> {
         centerTitle: true,
         backgroundColor: Colors.redAccent,
       ),
-      body: Column(
-        children: quotes.map((quote) => QuoteCard(
-            quote: quote,
-            delete: (){
-              setState(() {
-                quotes.remove(quote);
-              });
-            }
-        )).toList(),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: quotes
+              .map((quote) => QuoteCard(
+                  quote: quote,
+                  delete: () {
+                    setState(() {
+                      quotes.remove(quote);
+                    });
+                  }))
+              .toList(),
+        ),
       ),
     );
   }
 }
-

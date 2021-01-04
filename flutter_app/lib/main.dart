@@ -14,20 +14,18 @@ class MainScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Home'),
       ),
-      body: Center(
-        child: const Text('Press The button to go to cart')
-      ),
+      body: Center(child: const Text('Press The button to go to cart')),
       floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SecondRoute()),
-            );
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => SecondRoute()),
+          );
         },
-          child: Icon(Icons.mail_outline),
-          backgroundColor: Colors.green,
-        ),
-      );
+        child: Icon(Icons.mail_outline),
+        backgroundColor: Colors.green,
+      ),
+    );
   }
 }
 
@@ -38,15 +36,11 @@ class SecondRoute extends StatelessWidget {
       appBar: AppBar(
         title: Text("Cart"),
       ),
-      body: Column(
-        children: <Widget>[
-          productCard()
-        ]
-        ),
-      );
+      body: Column(children: <Widget>[productCard()]),
+    );
   }
 
-  productCard(){
+  productCard() {
     return Card(
       child: Column(
         mainAxisSize: MainAxisSize.min,
